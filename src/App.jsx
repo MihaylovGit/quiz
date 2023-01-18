@@ -1,5 +1,6 @@
-import { useState } from "react";
-import "../src/app.css"
+import { Component, useState } from "react";
+import "../src/app.css";
+import Quiz from "./components/quiz";
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1); 
@@ -23,6 +24,11 @@ function App() {
   return (
     <div className="app">
      <div className="main">main</div>
+     <div className="top"></div>
+     <div className="timer">30</div>
+     <div className="bottom">
+    <Quiz/>
+     </div>
      <div className="pyramid">money</div>
      <ul className="moneyList">
       {moneyPyramid.map((m) => (
