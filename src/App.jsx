@@ -1,11 +1,14 @@
-import { Component, useMemo, useState } from "react";
-import "../src/app.css";
-import Quiz from "./components/Quiz.jsx";
+import "./app.css";
+import { useEffect, useMemo, useState } from "react";
+import Start from "./components/Start";
+import Timer from "./components/Timer";
+import Quiz from "./components/Quiz";
 
 function App() {
+  const [username, setUsername] = useState(null);
+  const [timeOut, setTimeOut] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [stop, setStop] = useState(false);
-  const[earned, setEarned] = useState("$ 0");
+  const [earned, setEarned] = useState("$ 0");
 
   const data = [
     {
@@ -54,10 +57,10 @@ function App() {
     },
     {
       id: 3,
-      question: "Who played the character of harry potter in movie?",
+      question: "Who played the character of Harry Potter in the movie?",
       answers: [
         {
-          text: "Johnny Deep",
+          text: "Johnny Depp",
           correct: false,
         },
         {
@@ -69,7 +72,7 @@ function App() {
           correct: false,
         },
         {
-          text: "Daniel Red Cliff",
+          text: "Daniel Radcliffe",
           correct: true,
         },
       ],
